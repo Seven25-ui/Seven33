@@ -215,25 +215,65 @@ h1, h2 {
 
 <script>
 // ===== Blog Posts Data =====
+
 const postsData = [
-    {title:"5 Minute Morning Routines", text:`Actually Boost Productivity
-Starting your day doesn’t have to be complicated. In just five minutes, you can do simple activities like stretching, making your bed, or jotting down your top three tasks for the day. These small actions set a positive tone, making you feel accomplished even before your coffee kicks in.
-
-Consistency is key. By practicing a short, focused morning routine, you train your brain to start each day with purpose. Over time, this tiny ritual can improve your focus, reduce stress, and make productivity feel almost effortless.`, media:"media/IMG_20251225_091214.jpg", type:"image", reverse:false},
-    {title:"The Secret Behind Viral TikTok Trends", text:`Ever wondered why some TikToks blow up overnight while others barely get views? It’s a mix of timing, relatability, and shareable content. Trends often exploit emotions, humor, or challenges that people can easily join.
-
-Creators who understand this formula maximize engagement. But the real secret is authenticity—people connect with real, relatable stories. The next time you scroll, notice what makes you stop, like, or share—it’s a formula in action.`, media:"media/photo-1642141325625-f76034e4ad2b.jpeg", type:"image", reverse:true},
-    {title:"10 Easy Ways to Upgrade Your Home Office", text:`A cluttered workspace can clutter your mind. Small changes like adding plants, better lighting, or a comfortable chair can drastically improve focus and mood. Even rearranging your desk for a new perspective makes a big difference.Your environment shapes your work habits. With simple upgrades, your home office can become a place of inspiration rather than stress. The goal isn’t perfection; it’s creating a space that motivates you every day.`, media:"media/lv_0_20251225215333.mp4", type:"video", reverse:false},
-    {title:"Why We’re Obsessed With Nostalgia", text:`Psychologists say nostalgia strengthens social bonds and boosts mood. So, next time you binge old shows or revisit childhood hobbies, remember—it’s not just fun, it’s good for your mental health.`, media:"media/photo-1533158307587-828f0a76ef46.jpeg", type:"image", reverse:true},
-    {title:"How Coffee Fuels Creativity (And How to Maximize It)", text:`Coffee isn’t just a morning ritual; it’s a creativity booster. The caffeine sparks alertness and helps you focus, making ideas flow more easily during brainstorming sessions.`
-  , media:"media/lv_0_20251225165012.mp4", type:"video", reverse:false},
-    {title:"The Minimalist Wardrobe: Less Is More", text:`Too many clothes can overwhelm your mind and closet. Minimalism isn’t about deprivation; it’s about curating a wardrobe you actually love. Choosing versatile, high-quality pieces makes dressing effortless.
-
-With fewer choices, decision fatigue decreases and style becomes intentional. By embracing minimalism, you free up mental space, save time, and still look great every day.`, media:"media/IMG_20251225_222256.jpg", type:"image", reverse:false},
-    {title:"Hidden Gems in Your City You Didn’t Know About", text:`Every city has secret spots waiting to be discovered—cafés tucked in alleyways, scenic parks, or quirky stores. Exploring these hidden gems makes ordinary weekends feel like mini adventures.
-
-Getting off the beaten path also supports local businesses and uncovers stories you won’t find online. Start exploring—you’ll be surprised how much your city has to offer beyond the tourist spots.`, media:"media/lv_0_20251225225434.mp4", type:"video", reverse:false},
-
+    {
+        title: "5 Minute Morning Routines",
+        text: `Actually Boost Productivity
+Starting your day doesn’t have to be complicated. ...`,
+        media: "media/IMG_20251225_091214.jpg",
+        type: "image",
+        reverse: false,
+        link: "post1.html"
+    },
+    {
+        title: "The Secret Behind Viral TikTok Trends",
+        text: `Ever wondered why some TikToks blow up overnight ...`,
+        media: "media/photo-1642141325625-f76034e4ad2b.jpeg",
+        type: "image",
+        reverse: true,
+        link: "post2.html"
+    },
+    {
+        title: "10 Easy Ways to Upgrade Your Home Office",
+        text: `A cluttered workspace can clutter your mind. ...`,
+        media: "media/lv_0_20251225215333.mp4",
+        type: "video",
+        reverse: false,
+        link: "post3.html"
+    },
+    {
+        title: "Why We’re Obsessed With Nostalgia",
+        text: `Psychologists say nostalgia strengthens social bonds ...`,
+        media: "media/photo-1533158307587-828f0a76ef46.jpeg",
+        type: "image",
+        reverse: true,
+        link: "post4.html"
+    },
+    {
+        title: "How Coffee Fuels Creativity (And How to Maximize It)",
+        text: `Coffee isn’t just a morning ritual; it’s a creativity booster ...`,
+        media: "media/lv_0_20251225165012.mp4",
+        type: "video",
+        reverse: false,
+        link: "post5.html"
+    },
+    {
+        title: "The Minimalist Wardrobe: Less Is More",
+        text: `Too many clothes can overwhelm your mind and closet ...`,
+        media: "media/IMG_20251225_222256.jpg",
+        type: "image",
+        reverse: false,
+        link: "post6.html"
+    },
+    {
+        title: "Hidden Gems in Your City You Didn’t Know About",
+        text: `Every city has secret spots waiting to be discovered ...`,
+        media: "media/lv_0_20251225225434.mp4",
+        type: "video",
+        reverse: false,
+        link: "post7.html"
+    }
 ];
 
 const postsContainer = document.getElementById("postsContainer");
@@ -252,11 +292,11 @@ function loadPostsBatch(){
         if(post.type==="video") mediaHTML=`<video controls><source src="${post.media}" type="video/mp4">Your browser does not support the video tag.</video>`;
 
         postCard.innerHTML = `<div class="post-text">
-            <h3>${post.title}</h3>
-            <p>${post.text}</p>
-            <a href="#">Read More</a>
-        </div>
-        <div class="post-media">${mediaHTML}</div>`;
+    <h3><a href="${post.link}">${post.title}</a></h3>
+    <p>${post.text}</p>
+    <a href="${post.link}">Read More</a>
+</div>
+<div class="post-media">${mediaHTML}</div>`;
 
         postsContainer.appendChild(postCard);
     }
