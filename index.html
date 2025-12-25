@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven33 Modern Blog</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ===== Global ===== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Inter, sans-serif;
+    margin: 0; padding: 0;
+    color: #f5f5f5;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+    background:
+        radial-gradient(at top left, #ff9a9e, transparent 55%),
+        radial-gradient(at top right, #a18cd1, transparent 55%),
+        radial-gradient(at bottom left, #fbc2eb, transparent 55%),
+        radial-gradient(at bottom right, #84fab0, transparent 55%),
+        linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+    background-attachment: fixed;
+}
+body::after {
+    content:'';
+    position: fixed; top:-50%; left:-50%;
+    width:200%; height:200%;
+    background: radial-gradient(circle at 30% 30%, rgba(0,200,255,0.15), transparent 70%);
+    z-index:-2;
+    animation: swirl2 90s linear infinite reverse;
+}
+.swirl3 {
+    position: fixed; top:-50%; left:-50%;
+    width:200%; height:200%;
+    background: radial-gradient(circle at 50% 50%, rgba(0,100,255,0.1), transparent 75%);
+    z-index:-3;
+    animation: swirl3 120s linear infinite;
+}
+
+/* ===== Header ===== */
+header {
+    background: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position: sticky;
+    top:0;
+    z-index:10;
+}
+header h1 { color:#fff; font-weight:700; font-size:1.5rem; }
+nav a { margin-left:15px; font-weight:500; color:rgba(255,255,255,0.9); text-decoration:none; transition:0.25s; }
+nav a:hover { color:#ffc0cb; }
+#themeToggle { margin-left:15px; font-size:0.9rem; background: rgba(255,255,255,0.12); border:none; border-radius:999px; color:#fff; padding:6px 12px; cursor:pointer; }
+#themeToggle:hover { background: rgba(255,255,255,0.25); }
+
+/* ===== Sections ===== */
+section { padding:50px 15px; min-height:auto; }
+#home h2 { font-size:2.2rem; color:#fff; text-align:center; margin-bottom:15px; }
+#home p { font-size:1rem; max-width:500px; margin:0 auto 20px auto; color:#e0e0e0; text-align:center; }
+
+/* ===== Blog Posts ===== */
+.posts { display:flex; flex-direction:column; gap:20px; opacity:1; }
+.post-card {
+    display:flex;
+    background: rgba(0,0,0,0.55);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    align-items: stretch;
+}
+.post-card.reverse { flex-direction: row-reverse; }
+.post-card.visible { opacity: 1; transform: translateY(0); }
+.post-text {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+.post-text h3 { margin-bottom: 8px; color: #ffc0cb; font-size: 1.3rem; }
+.post-text p { margin-bottom: 10px; color:#e0e0e0; font-size:1rem; white-space:pre-line; }
+.post-text a { margin-top:5px; color:#ff9acb; text-decoration:none; font-weight:600; }
+.post-text a:hover { color:#fff; }
+.post-media {
+    flex: 1;
+    max-width: 400px;
+    min-width: 200px;
+    height: 250px;
+    overflow: hidden;
+}
+.post-media img,
+.post-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+/* ===== About & Contact ===== */
+#about, #contact {
+    background: rgba(0,0,0,0.5);
+    border-radius:16px;
+    max-width:700px;
+    margin:0 auto;
+    padding:40px 30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.5);
+}
+#about h2, #contact h2 { color:#ffc0cb; text-align:center; margin-bottom:20px; }
+#about p, #contact p { color:#eaeaea; line-height:1.6; text-align:center; font-size:1rem; }
+#contact form { display:flex; flex-direction:column; gap:12px; }
+#contact input, #contact textarea { background: rgba(255,255,255,0.08); border:none; border-radius:8px; padding:10px; font-size:0.95rem; color:#fff; }
+#contact button { background:#77216F; color:#fff; border:none; border-radius:8px; padding:10px 18px; cursor:pointer; transition:0.3s; }
+#contact button:hover { background:#5E2750; }
+
+/* ===== Footer ===== */
+footer {
+    padding: 20px 40px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+footer .copyright { margin-right: 10px; }
+footer a { color: #fff; margin: 0 8px; text-decoration:none; }
+footer a:hover { color:#ffc0cb; }
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+    section { padding:40px 15px; }
+    #home h2 { font-size:1.8rem; }
+    #home p { font-size:0.95rem; }
+    .post-card, .post-card.reverse { flex-direction:column; }
+    .post-media { height:180px; max-width:100%; }
+    .post-text h3 { font-size:1.1rem; }
+    .post-text p, .post-text a { font-size:0.9rem; }
+    #about,#contact { padding:25px; }
+    footer { flex-direction: column; gap: 5px; padding: 15px 20px; font-size:0.85rem; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<div class="swirl3"></div>
+
+<header>
+    <h1>Seven33</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" title="Toggle Theme">🌞</button>
+    </nav>
+</header>
+
+<section id="home">
+    <h2>Welcome to Seven33 👊</h2>
+    <p>Discover articles, tutorials, and stories curated just for you.</p>
+    <div class="posts" id="postsContainer"></div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm a passionate blogger and web developer. I love creating modern, interactive websites and sharing knowledge with the community.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<button id="scrollTopBtn" title="Go to top">↑</button>
+
+<footer>
+    <div class="copyright">&copy; 2025 Seven33</div>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+
+<script>
+// ===== Blog Posts Data =====
+const postsData = [
+    {title:"5 Minute Morning Routines", text:`Actually Boost Productivity
+Starting your day doesn’t have to be complicated. In just five minutes, you can do simple activities like stretching, making your bed, or jotting down your top three tasks for the day. These small actions set a positive tone, making you feel accomplished even before your coffee kicks in.
+
+Consistency is key. By practicing a short, focused morning routine, you train your brain to start each day with purpose. Over time, this tiny ritual can improve your focus, reduce stress, and make productivity feel almost effortless.`, media:"media/IMG_20251225_091214.jpg", type:"image", reverse:false},
+    {title:"Blog Post 2", text:"Example text here...", media:"https://source.unsplash.com/400x300/?tech", type:"image", reverse:true},
+    {title:"Video Post Example", text:"Watch this cool video.", media:"media/sample-video.mp4", type:"video", reverse:false},
+    {title:"Post 4", text:"More content here.", media:"https://source.unsplash.com/400x300/?nature", type:"image", reverse:true},
+    {title:"Post 5", text:"Another video post.", media:"media/sample-video.mp4", type:"video", reverse:false},
+    // add more freely
+];
+
+const postsContainer = document.getElementById("postsContainer");
+let loadIndex = 0;
+const loadPerBatch = 2;
+
+function loadPostsBatch(){
+    for(let i=0;i<loadPerBatch && loadIndex<postsData.length;i++, loadIndex++){
+        const post = postsData[loadIndex];
+        const postCard = document.createElement("div");
+        postCard.classList.add("post-card");
+        if(post.reverse) postCard.classList.add("reverse");
+
+        let mediaHTML = '';
+        if(post.type==="image") mediaHTML=`<img data-src="${post.media}" alt="${post.title}" loading="lazy" class="lazy">`;
+        if(post.type==="video") mediaHTML=`<video controls><source src="${post.media}" type="video/mp4">Your browser does not support the video tag.</video>`;
+
+        postCard.innerHTML = `<div class="post-text">
+            <h3>${post.title}</h3>
+            <p>${post.text}</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="post-media">${mediaHTML}</div>`;
+
+        postsContainer.appendChild(postCard);
+    }
+    initLazyLoading();
+    initPostAnimations();
+}
+
+function initLazyLoading(){
+    const lazyImages = document.querySelectorAll('img.lazy');
+    const observer = new IntersectionObserver((entries, obs)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.src = entry.target.dataset.src;
+                entry.target.classList.remove('lazy');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {rootMargin:"0px 0px 200px 0px"});
+    lazyImages.forEach(img => observer.observe(img));
+}
+
+function initPostAnimations(){
+    const postCards = document.querySelectorAll('.post-card');
+    const observer = new IntersectionObserver((entries, obs)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {threshold:0.1});
+    postCards.forEach(card => observer.observe(card));
+}
+
+// Auto-load next batch on scroll
+window.addEventListener("scroll", ()=>{
+    if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 150){
+        if(loadIndex < postsData.length){
+            loadPostsBatch();
+        }
+    }
+});
+
+// Initial load
+loadPostsBatch();
+
+// ===== Theme Toggle =====
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", ()=>{
+    document.body.classList.toggle("light-theme");
+    themeToggle.textContent = document.body.classList.contains("light-theme") ? "🌙" : "🌞";
+});
+
+// ===== Scroll-to-top =====
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+window.onscroll = function(){
+    if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300)
+        scrollTopBtn.style.display="block";
+    else
+        scrollTopBtn.style.display="none";
+};
+scrollTopBtn.addEventListener("click", ()=>{window.scrollTo({top:0, behavior:"smooth"});});
+</script>
+</body>
+</html>
