@@ -137,6 +137,45 @@ footer .copyright { margin-right: 10px; }
 footer a { color: #fff; margin: 0 8px; text-decoration:none; }
 footer a:hover { color:#ffc0cb; }
 
+/* ===== Footer Social Links ===== */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+  opacity: 0.85;
+}
+
+.social-links a i {
+  font-size: 1.1rem;
+}
+
+.social-links a:hover {
+  color: #ffc0cb;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* text link (privacy) */
+.social-links .text-link {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Mobile footer alignment */
+@media (max-width: 768px) {
+  .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 /* ===== Responsive ===== */
 @media(max-width:768px){
     section { padding:40px 15px; }
@@ -159,11 +198,31 @@ h1, h2 {
     4px 4px 0 #222;
 }
 
-.about {
-  max-width: 720px;   /* control sa ka-lapad sa desktop */
-  margin: 40px auto;  /* center sa screen */
-  padding: 20px;
-  line-height: 1.6;
+/* ===== Desktop fix for About & Contact ===== */
+@media (min-width: 1024px) {
+  #about, 
+  #contact {
+    max-width: 520px;     /* gamay kaysa 700 */
+    padding: 25px 25px;   /* less vertical space */
+    margin: 40px auto;    /* dili kaayo layo */
+  }
+
+  #about p,
+  #contact p {
+    font-size: 0.95rem;   /* slightly smaller text */
+    line-height: 1.55;
+  }
+
+  #about h2,
+  #contact h2 {
+    font-size: 1.4rem;    /* dili kaayo dako */
+    margin-bottom: 15px;
+  }
+}
+
+#about, #contact {
+  background: rgba(0,0,0,0.35); /* less heavy */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
 }
 
 </style>
@@ -206,10 +265,20 @@ h1, h2 {
 
 <footer>
   <div class="copyright">&copy; 2025 Seven33</div>
+
   <div class="social-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="https://www.facebook.com/share/16pAnPLBFX/" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com/guardiana.gene" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://github.com" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="privacy.html" class="text-link">Privacy</a> •
+    <a href="terms.html" class="text-link">Terms</a> •
+    <a href="mailto:guardianagene6@gmail.com" class="text-link">Contact</a>
   </div>
 </footer>
 
@@ -273,12 +342,39 @@ Starting your day doesn’t have to be complicated. ...`,
         type: "video",
         reverse: false,
         link: "post7.html"
-    }
+    },
+
+    {
+        title: "Digital Detox: 24 Hours Without Screens",
+        text: `Imagine a full day without phones, laptops, or TV. At first,...`,
+        media: "media/IMG_20251226_103839.jpg",
+        type: "image",
+        reverse: false,
+        link: "post8.html"
+    },
+    {
+        title: "Why Failing Fast Is Actually Winning",
+        text: `The sooner you fail, the sooner you learn, adapt, and grow ...`,
+        media: "media/lv_0_20251226111650.mp4",
+        type: "video",
+        reverse: false,
+        link: "post9.html"
+    },
+
+   {
+        title: "Micro Habits That Change Your Life",
+        text: `You don’t need to overhaul your entire life to see big results ...`,
+        media: "media/IMG_20251226_104132.jpg",
+        type: "image",
+        reverse: false,
+        link: "post10.html"
+    },
+
 ];
 
 const postsContainer = document.getElementById("postsContainer");
 let loadIndex = 0;
-const loadPerBatch = 4;
+const loadPerBatch = 10;
 
 function loadPostsBatch(){
     for(let i=0;i<loadPerBatch && loadIndex<postsData.length;i++, loadIndex++){
