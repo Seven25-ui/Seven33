@@ -3,12 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seven33 Modern Blog</title>
+<title>Seven33 Blog</title>
+
+<!-- Global AdSense script -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9985396086570117"
      crossorigin="anonymous"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+
 <style>
 /* ===== Global ===== */
 body {
@@ -109,15 +113,15 @@ section { padding:50px 15px; min-height:auto; }
 
 /* ===== About & Contact ===== */
 #about, #contact {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.35);
     border-radius:16px;
-    max-width:700px;
-    margin:0 auto;
-    padding:40px 30px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.5);
+    max-width:520px;
+    margin:40px auto;
+    padding:25px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.35);
 }
-#about h2, #contact h2 { color:#ffc0cb; text-align:center; margin-bottom:20px; }
-#about p, #contact p { color:#eaeaea; line-height:1.6; text-align:center; font-size:1rem; }
+#about h2, #contact h2 { color:#ffc0cb; text-align:center; margin-bottom:15px; font-size:1.4rem; }
+#about p, #contact p { color:#eaeaea; line-height:1.55; text-align:center; font-size:0.95rem; }
 #contact form { display:flex; flex-direction:column; gap:12px; }
 #contact input, #contact textarea { background: rgba(255,255,255,0.08); border:none; border-radius:8px; padding:10px; font-size:0.95rem; color:#fff; }
 #contact button { background:#77216F; color:#fff; border:none; border-radius:8px; padding:10px 18px; cursor:pointer; transition:0.3s; }
@@ -145,50 +149,23 @@ footer a:hover { color:#ffc0cb; }
   align-items: center;
   gap: 14px;
 }
+.social-links a { color: #fff; font-size: 1rem; text-decoration: none; transition: 0.3s ease; opacity: 0.85; }
+.social-links a i { font-size: 1.1rem; }
+.social-links a:hover { color: #ffc0cb; opacity: 1; transform: translateY(-2px); }
+.social-links .text-link { font-size: 0.85rem; opacity: 0.7; }
 
-.social-links a {
-  color: #fff;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: 0.3s ease;
-  opacity: 0.85;
-}
-
-.social-links a i {
-  font-size: 1.1rem;
-}
-
-.social-links a:hover {
-  color: #ffc0cb;
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-/* text link (privacy) */
-.social-links .text-link {
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* Mobile footer alignment */
+/* ===== Mobile footer alignment ===== */
 @media (max-width: 768px) {
-  .social-links {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-
-/* ===== Responsive ===== */
-@media(max-width:768px){
-    section { padding:40px 15px; }
-    #home h2 { font-size:1.8rem; }
-    #home p { font-size:0.95rem; }
-    .post-card, .post-card.reverse { flex-direction:column; }
-    .post-media { height:180px; max-width:100%; }
-    .post-text h3 { font-size:1.1rem; }
-    .post-text p, .post-text a { font-size:0.9rem; }
-    #about,#contact { padding:25px; }
-    footer { flex-direction: column; gap: 5px; padding: 15px 20px; font-size:0.85rem; justify-content: center; }
+  .social-links { justify-content: center; flex-wrap: wrap; }
+  section { padding:40px 15px; }
+  #home h2 { font-size:1.8rem; }
+  #home p { font-size:0.95rem; }
+  .post-card, .post-card.reverse { flex-direction:column; }
+  .post-media { height:180px; max-width:100%; }
+  .post-text h3 { font-size:1.1rem; }
+  .post-text p, .post-text a { font-size:0.9rem; }
+  #about,#contact { padding:25px; }
+  footer { flex-direction: column; gap: 5px; padding: 15px 20px; font-size:0.85rem; justify-content: center; }
 }
 
 h1, h2 {
@@ -200,35 +177,33 @@ h1, h2 {
     4px 4px 0 #222;
 }
 
-/* ===== Desktop fix for About & Contact ===== */
-@media (min-width: 1024px) {
-  #about, 
-  #contact {
-    max-width: 520px;     /* gamay kaysa 700 */
-    padding: 25px 25px;   /* less vertical space */
-    margin: 40px auto;    /* dili kaayo layo */
-  }
-
-  #about p,
-  #contact p {
-    font-size: 0.95rem;   /* slightly smaller text */
-    line-height: 1.55;
-  }
-
-  #about h2,
-  #contact h2 {
-    font-size: 1.4rem;    /* dili kaayo dako */
-    margin-bottom: 15px;
-  }
+/* ===== Scroll To Top Button ===== */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    background: #ff9acb;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-#about, #contact {
-  background: rgba(0,0,0,0.35); /* less heavy */
-  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+#scrollTopBtn:hover {
+    transform: translateY(-4px);
+    opacity: 0.9;
 }
 
 </style>
 </head>
+
 <body>
 <div class="swirl3"></div>
 
@@ -245,6 +220,18 @@ h1, h2 {
 <section id="home">
     <h2>•Welcome to Seven33•</h2>
     <p>Discover articles, tutorials, and stories curated just for you.</p>
+
+    <!-- Top AdSense Banner -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block; text-align:center;"
+             data-ad-client="ca-pub-9985396086570117"
+             data-ad-slot="YOUR_TOP_AD_SLOT"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div class="posts" id="postsContainer"></div>
 </section>
 
@@ -265,29 +252,12 @@ h1, h2 {
 
 <button id="scrollTopBtn" title="Go to top">↑</button>
 
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9985396086570117"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <footer>
   <div class="copyright">&copy; 2025 Seven33</div>
-
   <div class="social-links">
-    <a href="https://www.facebook.com/share/16pAnPLBFX/" aria-label="Facebook">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://instagram.com/guardiana.gene" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://github.com" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
+    <a href="https://www.facebook.com/share/16pAnPLBFX/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/guardiana.gene" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a>
     <a href="privacy.html" class="text-link">Privacy</a> •
     <a href="terms.html" class="text-link">Terms</a> •
     <a href="mailto:guardianagene6@gmail.com" class="text-link">Contact</a>
@@ -296,7 +266,6 @@ h1, h2 {
 
 <script>
 // ===== Blog Posts Data =====
-
 const postsData = [
     {
         title: "5 Minute Morning Routines",
@@ -355,7 +324,6 @@ Starting your day doesn’t have to be complicated. ...`,
         reverse: false,
         link: "post7.html"
     },
-
     {
         title: "Digital Detox: 24 Hours Without Screens",
         text: `Imagine a full day without phones, laptops, or TV. At first,...`,
@@ -372,8 +340,7 @@ Starting your day doesn’t have to be complicated. ...`,
         reverse: false,
         link: "post9.html"
     },
-
-   {
+    {
         title: "Micro Habits That Change Your Life",
         text: `You don’t need to overhaul your entire life to see big results ...`,
         media: "media/IMG_20251226_104132.jpg",
@@ -381,9 +348,9 @@ Starting your day doesn’t have to be complicated. ...`,
         reverse: false,
         link: "post10.html"
     },
-
 ];
 
+// ===== Posts Rendering =====
 const postsContainer = document.getElementById("postsContainer");
 let loadIndex = 0;
 const loadPerBatch = 10;
@@ -407,6 +374,22 @@ function loadPostsBatch(){
 <div class="post-media">${mediaHTML}</div>`;
 
         postsContainer.appendChild(postCard);
+
+        // Insert AdSense after 3rd post
+        if(loadIndex === 2){
+            const adDiv = document.createElement("div");
+            adDiv.classList.add("ad-container");
+            adDiv.innerHTML = `
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-client="ca-pub-9985396086570117"
+                 data-ad-slot="YOUR_MID_AD_SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            `;
+            postsContainer.appendChild(adDiv);
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }
     }
     initLazyLoading();
     initPostAnimations();
@@ -432,7 +415,7 @@ function initPostAnimations(){
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
+                obsobs.unobserve(entry.target);
             }
         });
     }, {threshold:0.1});
@@ -450,24 +433,30 @@ window.addEventListener("scroll", ()=>{
 
 // Initial load
 loadPostsBatch();
-loadPostsBatch();
 
 // ===== Theme Toggle =====
 const themeToggle = document.getElementById("themeToggle");
 themeToggle.addEventListener("click", ()=>{
     document.body.classList.toggle("light-theme");
-    themeToggle.textContent = document.body.classList.contains("light-theme") ? "⚫" : "⚪";
+    themeToggle.textContent = document.body.classList.contains("light-theme") ? "⚫" : "🔆";
 });
 
 // ===== Scroll-to-top =====
 const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.onscroll = function(){
-    if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300)
-        scrollTopBtn.style.display="block";
-    else
-        scrollTopBtn.style.display="none";
-};
-scrollTopBtn.addEventListener("click", ()=>{window.scrollTo({top:0, behavior:"smooth"});});
+
+window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+});
+
+scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
 </script>
+
 </body>
 </html>
