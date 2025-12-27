@@ -171,20 +171,31 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     display: flex;
     gap: 30px;
     padding: 50px 15px;
+    align-items: flex-start; /* align sidebar ug main content sa top */
+    flex-wrap: wrap; /* para mo-wrap sa mobile */
 }
 
 .home-with-sidebar .main-content {
-    flex: 3;
+    flex: 3 1 600px; /* flexible pero min-width para desktop ug mobile */
+    min-width: 300px;
 }
 
 .home-with-sidebar .sidebar {
-    flex: 1;
+    flex: 1 1 250px; /* flexible pero min-width para mobile */
     background: rgba(0,0,0,0.35);
     border-radius: 12px;
     padding: 20px;
     max-width: 300px;
+    min-width: 250px;
+    box-sizing: border-box;
 }
 
+/* Sidebar inner spacing */
+.sidebar > div {
+    margin-bottom: 25px; /* space between search, popular posts, newsletter */
+}
+
+/* Center sidebar headings */
 .sidebar h3 {
     color: #ffc0cb;
     margin-bottom: 10px;
@@ -192,7 +203,9 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     text-align: center;
 }
 
-.sidebar input[type="text"], .sidebar input[type="email"] {
+/* Input and button adjustments */
+.sidebar input[type="text"],
+.sidebar input[type="email"] {
     width: 100%;
     padding: 8px 10px;
     border-radius: 6px;
@@ -201,6 +214,7 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     background: rgba(255,255,255,0.08);
     color: #fff;
     font-size: 0.95rem;
+    box-sizing: border-box;
 }
 
 .sidebar button {
@@ -218,34 +232,34 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     background: #5E2750;
 }
 
+/* Popular posts list spacing */
 .sidebar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
-
 .sidebar ul li {
     margin-bottom: 8px;
 }
-
 .sidebar ul li a {
     color: #ff9acb;
     text-decoration: none;
     font-size: 0.95rem;
 }
-
-.sidebar ul li a:hover {
-    color: #fff;
-}
+.sidebar ul li a:hover { color:#fff; }
 
 /* ===== Responsive Sidebar ===== */
 @media (max-width: 1024px) {
     .home-with-sidebar {
         flex-direction: column;
+        gap: 20px;
     }
     .home-with-sidebar .sidebar {
         max-width: 100%;
-        margin-top: 30px;
+        min-width: 100%;
+        margin-top: 20px;
     }
+    .sidebar > div { margin-bottom: 20px; }
 }
 
 /* ===== Scroll To Top Button ===== */
@@ -284,8 +298,9 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     </nav>
 </header>
 
-<!-- ===== Updated Home Section with Sidebar ===== -->
+<!-- ===== Home Section with Sidebar ===== -->
 <section id="home" class="home-with-sidebar">
+    <!-- Main Content -->
     <div class="main-content">
         <h2>•Welcome to Seven33•</h2>
         <p>Your go-to space for modern lifestyle tips, self-improvement hacks, and productivity insights.</p>
@@ -301,13 +316,18 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
+        <!-- Blog Posts Container -->
         <div class="posts" id="postsContainer"></div>
     </div>
 
+    <!-- Sidebar -->
     <aside class="sidebar">
+        <!-- Search Box -->
         <div class="search-box">
             <input type="text" placeholder="Search articles..." id="searchInput">
         </div>
+
+        <!-- Popular Posts -->
         <div class="popular-posts">
             <h3>Popular Posts</h3>
             <ul>
@@ -316,6 +336,8 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
                 <li><a href="post6.html">The Minimalist Wardrobe: Less Is More</a></li>
             </ul>
         </div>
+
+        <!-- Newsletter -->
         <div class="newsletter">
             <h3>Subscribe to Newsletter</h3>
             <form id="newsletterForm">
