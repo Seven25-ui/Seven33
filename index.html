@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seven33 Blog</title>
+<title>Seven33 • Modern Lifestyle & Self-Improvement Blog</title>
+<meta name="description" content="Seven33 Blog: Modern lifestyle tips, self-improvement hacks, and productivity insights to level up your everyday life.">
+<meta name="keywords" content="modern lifestyle, self-improvement, productivity, habits, personal growth, digital culture">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 <!-- Global AdSense script -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9985396086570117"
@@ -57,7 +60,11 @@ header {
     top:0;
     z-index:10;
 }
-header h1 { color:#fff; font-weight:700; font-size:1.5rem; }
+header h1 {
+    color:#fff;
+    font-weight:700;
+    font-size:1.5rem;
+}
 nav a { margin-left:15px; font-weight:500; color:rgba(255,255,255,0.9); text-decoration:none; transition:0.25s; }
 nav a:hover { color:#ffc0cb; }
 #themeToggle { margin-left:15px; font-size:0.9rem; background: rgba(255,255,255,0.12); border:none; border-radius:999px; color:#fff; padding:6px 12px; cursor:pointer; }
@@ -67,6 +74,7 @@ nav a:hover { color:#ffc0cb; }
 section { padding:50px 15px; min-height:auto; }
 #home h2 { font-size:2.2rem; color:#fff; text-align:center; margin-bottom:15px; }
 #home p { font-size:1rem; max-width:500px; margin:0 auto 20px auto; color:#e0e0e0; text-align:center; }
+#home .ad-container { margin:20px auto; }
 
 /* ===== Blog Posts ===== */
 .posts { display:flex; flex-direction:column; gap:20px; opacity:1; }
@@ -95,21 +103,9 @@ section { padding:50px 15px; min-height:auto; }
 .post-text p { margin-bottom: 10px; color:#e0e0e0; font-size:1rem; white-space:pre-line; }
 .post-text a { margin-top:5px; color:#ff9acb; text-decoration:none; font-weight:600; }
 .post-text a:hover { color:#fff; }
-.post-media {
-    flex: 1;
-    max-width: 400px;
-    min-width: 200px;
-    height: 250px;
-    overflow: hidden;
-}
-.post-media img,
-.post-media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 10px;
-}
+.post-text .category { font-size:0.85rem; color:#ccc; margin-bottom:5px; font-style:italic; }
+.post-media { flex: 1; max-width: 400px; min-width: 200px; height: 250px; overflow: hidden; }
+.post-media img, .post-media video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 10px; }
 
 /* ===== About & Contact ===== */
 #about, #contact {
@@ -142,6 +138,7 @@ footer {
 footer .copyright { margin-right: 10px; }
 footer a { color: #fff; margin: 0 8px; text-decoration:none; }
 footer a:hover { color:#ffc0cb; }
+.footer-tagline { width:100%; text-align:center; font-size:0.85rem; color:#ccc; margin-top:8px; }
 
 /* ===== Footer Social Links ===== */
 .social-links {
@@ -152,7 +149,6 @@ footer a:hover { color:#ffc0cb; }
 .social-links a { color: #fff; font-size: 1rem; text-decoration: none; transition: 0.3s ease; opacity: 0.85; }
 .social-links a i { font-size: 1.1rem; }
 .social-links a:hover { color: #ffc0cb; opacity: 1; transform: translateY(-2px); }
-.social-links .text-link { font-size: 0.85rem; opacity: 0.7; }
 
 /* ===== Mobile footer alignment ===== */
 @media (max-width: 768px) {
@@ -168,14 +164,7 @@ footer a:hover { color:#ffc0cb; }
   footer { flex-direction: column; gap: 5px; padding: 15px 20px; font-size:0.85rem; justify-content: center; }
 }
 
-h1, h2 {
-  font-family: 'Metal Mania', cursive;
-  letter-spacing: 3px;
-  color: #e0e0e0;
-  text-shadow:
-    2px 2px 0 #666,
-    4px 4px 0 #222;
-}
+h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e0; text-shadow: 2px 2px 0 #666, 4px 4px 0 #222; }
 
 /* ===== Scroll To Top Button ===== */
 #scrollTopBtn {
@@ -195,12 +184,7 @@ h1, h2 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-#scrollTopBtn:hover {
-    transform: translateY(-4px);
-    opacity: 0.9;
-}
-
+#scrollTopBtn:hover { transform: translateY(-4px); opacity: 0.9; }
 </style>
 </head>
 
@@ -208,7 +192,7 @@ h1, h2 {
 <div class="swirl3"></div>
 
 <header>
-    <h1>Seven33</h1>
+    <h1>Seven33 • Modern Lifestyle & Self-Improvement Blog</h1>
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About Me</a>
@@ -218,8 +202,8 @@ h1, h2 {
 </header>
 
 <section id="home">
-    <h2>•Welcome to Seven33•</h2>
-    <p>Discover articles, tutorials, and stories curated just for you.</p>
+    <h2>• Welcome to Seven33 •</h2>
+    <p>Your go-to space for modern lifestyle tips, self-improvement hacks, and productivity insights.</p>
 
     <!-- Top AdSense Banner -->
     <div class="ad-container">
@@ -237,7 +221,7 @@ h1, h2 {
 
 <section id="about">
     <h2>About Me</h2>
-    <p>I’m a self-driven web developer focused on building clean, functional, and modern websites. This blog serves as my digital workspace — a place to share thoughts, projects, and lessons learned while exploring web technologies.😁</p>
+    <p>Hi, I’m Gene, the mind behind Seven33. Here, I share insights on modern lifestyle, self-improvement, productivity, and digital culture. This blog is your space for practical tips, habits, and ideas to level up your everyday life. 😁</p>
 </section>
 
 <section id="contact">
@@ -262,92 +246,22 @@ h1, h2 {
     <a href="terms.html" class="text-link">Terms</a> •
     <a href="mailto:guardianagene6@gmail.com" class="text-link">Contact</a>
   </div>
+  <p class="footer-tagline">Sharing modern lifestyle tips and self-improvement hacks for everyday growth.</p>
 </footer>
 
 <script>
 // ===== Blog Posts Data =====
 const postsData = [
-    {
-        title: "5 Minute Morning Routines",
-        text: `Actually Boost Productivity
-Starting your day doesn’t have to be complicated. ...`,
-        media: "media/IMG_20251225_091214.jpg",
-        type: "image",
-        reverse: false,
-        link: "post1.html"
-    },
-    {
-        title: "The Secret Behind Viral TikTok Trends",
-        text: `Ever wondered why some TikToks blow up overnight ...`,
-        media: "media/photo-1642141325625-f76034e4ad2b.jpeg",
-        type: "image",
-        reverse: true,
-        link: "post2.html"
-    },
-    {
-        title: "10 Easy Ways to Upgrade Your Home Office",
-        text: `A cluttered workspace can clutter your mind. ...`,
-        media: "media/lv_0_20251225215333.mp4",
-        type: "video",
-        reverse: false,
-        link: "post3.html"
-    },
-    {
-        title: "Why We’re Obsessed With Nostalgia",
-        text: `Psychologists say nostalgia strengthens social bonds ...`,
-        media: "media/photo-1533158307587-828f0a76ef46.jpeg",
-        type: "image",
-        reverse: true,
-        link: "post4.html"
-    },
-    {
-        title: "How Coffee Fuels Creativity (And How to Maximize It)",
-        text: `Coffee isn’t just a morning ritual; it’s a creativity booster ...`,
-        media: "media/lv_0_20251225165012.mp4",
-        type: "video",
-        reverse: false,
-        link: "post5.html"
-    },
-    {
-        title: "The Minimalist Wardrobe: Less Is More",
-        text: `Too many clothes can overwhelm your mind and closet ...`,
-        media: "media/IMG_20251225_222256.jpg",
-        type: "image",
-        reverse: false,
-        link: "post6.html"
-    },
-    {
-        title: "Hidden Gems in Your City You Didn’t Know About",
-        text: `Every city has secret spots waiting to be discovered ...`,
-        media: "media/lv_0_20251225225434.mp4",
-        type: "video",
-        reverse: false,
-        link: "post7.html"
-    },
-    {
-        title: "Digital Detox: 24 Hours Without Screens",
-        text: `Imagine a full day without phones, laptops, or TV. At first,...`,
-        media: "media/IMG_20251226_103839.jpg",
-        type: "image",
-        reverse: false,
-        link: "post8.html"
-    },
-    {
-        title: "Why Failing Fast Is Actually Winning",
-        text: `The sooner you fail, the sooner you learn, adapt, and grow ...`,
-        media: "media/lv_0_20251226111650.mp4",
-        type: "video",
-        reverse: false,
-        link: "post9.html"
-    },
-    {
-        title: "Micro Habits That Change Your Life",
-        text: `You don’t need to overhaul your entire life to see big results ...`,
-        media: "media/IMG_20251226_104132.jpg",
-        type: "image",
-        reverse: false,
-        link: "post10.html"
-    },
+    {title:"5 Minute Morning Routines", text:"Actually Boost Productivity\nStarting your day doesn’t have to be complicated. ...", media:"media/IMG_20251225_091214.jpg", type:"image", reverse:false, link:"post1.html", category:"Productivity"},
+    {title:"The Secret Behind Viral TikTok Trends", text:"Ever wondered why some TikToks blow up overnight ...", media:"media/photo-1642141325625-f76034e4ad2b.jpeg", type:"image", reverse:true, link:"post2.html", category:"Digital Culture"},
+    {title:"10 Easy Ways to Upgrade Your Home Office", text:"A cluttered workspace can clutter your mind. ...", media:"media/lv_0_20251225215333.mp4", type:"video", reverse:false, link:"post3.html", category:"Lifestyle"},
+    {title:"Why We’re Obsessed With Nostalgia", text:"Psychologists say nostalgia strengthens social bonds ...", media:"media/photo-1533158307587-828f0a76ef46.jpeg", type:"image", reverse:true, link:"post4.html", category:"Psychology"},
+    {title:"How Coffee Fuels Creativity (And How to Maximize It)", text:"Coffee isn’t just a morning ritual; it’s a creativity booster ...", media:"media/lv_0_20251225165012.mp4", type:"video", reverse:false, link:"post5.html", category:"Productivity"},
+    {title:"The Minimalist Wardrobe: Less Is More", text:"Too many clothes can overwhelm your mind and closet ...", media:"media/IMG_20251225_222256.jpg", type:"image", reverse:false, link:"post6.html", category:"Lifestyle"},
+    {title:"Hidden Gems in Your City You Didn’t Know About", text:"Every city has secret spots waiting to be discovered ...", media:"media/lv_0_20251225225434.mp4", type:"video", reverse:false, link:"post7.html", category:"Lifestyle"},
+    {title:"Digital Detox: 24 Hours Without Screens", text:"Imagine a full day without phones, laptops, or TV. At first,...", media:"media/IMG_20251226_103839.jpg", type:"image", reverse:false, link:"post8.html", category:"Self-Improvement"},
+    {title:"Why Failing Fast Is Actually Winning", text:"The sooner you fail, the sooner you learn, adapt, and grow ...", media:"media/lv_0_20251226111650.mp4", type:"video", reverse:false, link:"post9.html", category:"Self-Improvement"},
+    {title:"Micro Habits That Change Your Life", text:"You don’t need to overhaul your entire life to see big results ...", media:"media/IMG_20251226_104132.jpg", type:"image", reverse:false, link:"post10.html", category:"Self-Improvement"},
 ];
 
 // ===== Posts Rendering =====
@@ -368,6 +282,7 @@ function loadPostsBatch(){
 
         postCard.innerHTML = `<div class="post-text">
     <h3><a href="${post.link}">${post.title}</a></h3>
+    <span class="category">Category: ${post.category}</span>
     <p>${post.text}</p>
     <a href="${post.link}">Read More</a>
 </div>
@@ -405,8 +320,8 @@ function initLazyLoading(){
                 obs.unobserve(entry.target);
             }
         });
-    }, {rootMargin:"0px 0px 200px 0px"});
-    lazyImages.forEach(img => observer.observe(img));
+    }, {});
+lazyImages.forEach(img => observer.observe(img));
 }
 
 function initPostAnimations(){
@@ -415,7 +330,7 @@ function initPostAnimations(){
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 entry.target.classList.add('visible');
-                obsobs.unobserve(entry.target);
+                obs.unobserve(entry.target);
             }
         });
     }, {threshold:0.1});
@@ -431,9 +346,6 @@ window.addEventListener("scroll", ()=>{
     }
 });
 
-// Initial load
-loadPostsBatch();
-
 // ===== Theme Toggle =====
 const themeToggle = document.getElementById("themeToggle");
 themeToggle.addEventListener("click", ()=>{
@@ -443,7 +355,6 @@ themeToggle.addEventListener("click", ()=>{
 
 // ===== Scroll-to-top =====
 const scrollTopBtn = document.getElementById("scrollTopBtn");
-
 window.addEventListener("scroll", () => {
     if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
         scrollTopBtn.style.display = "block";
@@ -451,11 +362,12 @@ window.addEventListener("scroll", () => {
         scrollTopBtn.style.display = "none";
     }
 });
-
 scrollTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+// Initial load
+loadPostsBatch();
 </script>
 
 </body>
