@@ -166,6 +166,88 @@ footer a:hover { color:#ffc0cb; }
 
 h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e0; text-shadow: 2px 2px 0 #666, 4px 4px 0 #222; }
 
+/* ===== Home with Sidebar ===== */
+.home-with-sidebar {
+    display: flex;
+    gap: 30px;
+    padding: 50px 15px;
+}
+
+.home-with-sidebar .main-content {
+    flex: 3;
+}
+
+.home-with-sidebar .sidebar {
+    flex: 1;
+    background: rgba(0,0,0,0.35);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 300px;
+}
+
+.sidebar h3 {
+    color: #ffc0cb;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.sidebar input[type="text"], .sidebar input[type="email"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #77216F;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    background: #5E2750;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 8px;
+}
+
+.sidebar ul li a {
+    color: #ff9acb;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.sidebar ul li a:hover {
+    color: #fff;
+}
+
+/* ===== Responsive Sidebar ===== */
+@media (max-width: 1024px) {
+    .home-with-sidebar {
+        flex-direction: column;
+    }
+    .home-with-sidebar .sidebar {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+}
+
 /* ===== Scroll To Top Button ===== */
 #scrollTopBtn {
     position: fixed;
@@ -185,6 +267,7 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 #scrollTopBtn:hover { transform: translateY(-4px); opacity: 0.9; }
+
 </style>
 </head>
 
@@ -201,22 +284,46 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     </nav>
 </header>
 
-<section id="home">
-    <h2>• Welcome to Seven33 •</h2>
-    <p>Your go-to space for modern lifestyle tips, self-improvement hacks, and productivity insights.</p>
+<!-- ===== Updated Home Section with Sidebar ===== -->
+<section id="home" class="home-with-sidebar">
+    <div class="main-content">
+        <h2>•Welcome to Seven33•</h2>
+        <p>Your go-to space for modern lifestyle tips, self-improvement hacks, and productivity insights.</p>
 
-    <!-- Top AdSense Banner -->
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-client="ca-pub-9985396086570117"
-             data-ad-slot="YOUR_TOP_AD_SLOT"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        <!-- Top AdSense Banner -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-client="ca-pub-9985396086570117"
+                 data-ad-slot="YOUR_TOP_AD_SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="posts" id="postsContainer"></div>
     </div>
 
-    <div class="posts" id="postsContainer"></div>
+    <aside class="sidebar">
+        <div class="search-box">
+            <input type="text" placeholder="Search articles..." id="searchInput">
+        </div>
+        <div class="popular-posts">
+            <h3>Popular Posts</h3>
+            <ul>
+                <li><a href="post1.html">5 Minute Morning Routines</a></li>
+                <li><a href="post2.html">The Secret Behind Viral TikTok Trends</a></li>
+                <li><a href="post6.html">The Minimalist Wardrobe: Less Is More</a></li>
+            </ul>
+        </div>
+        <div class="newsletter">
+            <h3>Subscribe to Newsletter</h3>
+            <form id="newsletterForm">
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </aside>
 </section>
 
 <section id="about">
