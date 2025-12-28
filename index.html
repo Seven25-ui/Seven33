@@ -314,6 +314,21 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
         <div class="posts" id="postsContainer"></div>
     </div>
 
+<div style="text-align:center; margin:30px 0;">
+    <button id="loadMoreBtn"
+        style="
+            padding:12px 24px;
+            border-radius:999px;
+            border:none;
+            background:#ff9acb;
+            color:#000;
+            font-weight:700;
+            cursor:pointer;
+            box-shadow:0 4px 12px rgba(0,0,0,0.4);
+        ">
+        Load More
+    </button>
+</div>
     <aside class="sidebar">
         <div class="search-box">
             <input type="text" placeholder="Search articles..." id="searchInput">
@@ -366,7 +381,6 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
     <a href="mailto:guardianagene6@gmail.com">Contact</a>
   </div>
  <p class="footer-tagline">Sharing modern lifestyle tips and self-improvement hacks for everyday growth.</p>
-</footer>
 </footer>
 
 <script>
@@ -498,6 +512,51 @@ window.addEventListener("scroll", () => {
 });
 scrollTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ===== SEARCH + NO RESULT (FIXED) =====
+const searchInput = document.getElementById("searchInput");
+const noResultMsg = document.getElementById("noResultMsg");
+
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    const postCards = document.querySelectorAll(".post-card");
+
+    let visibleCount = 0;
+
+    postCards.forEach(card => {
+        const title = card.querySelector("h3").innerText.toLowerCase();
+        const text = card.querySelector("p").innerText.toLowerCase();
+        const category = card.querySelector(".category").innerText.toLowerCase();
+
+        if (
+            title.includes(query) ||
+            text.includes(query) ||
+            category.includes(query)
+        ) {
+            card.style.display = "flex";
+            visibleCount++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    // Show / hide no result message
+    noResultMsg.style.display = visibleCount === 0 ? "block" : "none";
+});
+
+// ===== LOAD MORE BUTTON =====
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+loadMoreBtn.addEventListener("click", () => {
+    loadPostsBatch();
+
+    if (loadIndex >= postsData.length) {
+        loadMoreBtn.textContent = "No More Posts";
+        loadMoreBtn.disabled = true;
+        loadMoreBtn.style.opacity = "0.6";
+        loadMoreBtn.style.cursor = "not-allowed";
+    }
 });
 
 // ===== Initial Load =====
