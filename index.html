@@ -374,8 +374,10 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
   <div class="copyright">&copy; 2025 Seven33</div>
   <div class="social-links">
     <a href="https://www.facebook.com/share/16pAnPLBFX/"><i class="fab fa-facebook-f"></i></a>
+    <a href="ytclone/index.html"><i class="fab fa-youtube"></i></a>
     <a href="https://instagram.com/guardiana.gene"><i class="fab fa-instagram"></i></a>
     <a href="https://github.com"><i class="fab fa-github"></i></a>
+    <a href="weather/index.html">WeatherApp</a> •
     <a href="privacy.html">Privacy</a> •
     <a href="terms.html">Terms</a> •
     <a href="mailto:guardianagene6@gmail.com">Contact</a>
@@ -444,7 +446,7 @@ function initPostAnimations(){
 // ===== Render Posts =====
 const postsContainer = document.getElementById("postsContainer");
 let loadIndex = 0;
-const loadPerBatch = 5;
+const loadPerBatch = 3;
 
 function loadPostsBatch(){
     for(let i=0; i<loadPerBatch && loadIndex<postsData.length; i++, loadIndex++){
