@@ -291,15 +291,24 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
 }
 
 #randomWelcomeText{
-    font-size: 1rem;          /* readable */
+    font-size: 1.05rem;
     line-height: 1.65;
     text-align: center;
-    margin: 0;
+    margin: 0 0 25px 0;
     font-weight: 500;
 
-    background: linear-gradient(90deg, #ffb3d9, #c3b1ff, #9ff0c3);
+    background: linear-gradient(270deg, #ffb3d9, #c3b1ff, #9ff0c3, #ffea00);
+    background-size: 800% 800%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Mobile fine-tune */
@@ -320,6 +329,25 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Typewriter cursor */
+.type-cursor::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 2px;
+    color: #ffea00; /* yellow cursor */
+    animation: blinkCursor 1s steps(2, start) infinite, glowCursor 1.5s ease-in-out infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes glowCursor {
+    0%, 100% { text-shadow: 0 0 3px #ffea00; }
+    50% { text-shadow: 0 0 8px #ffea00; }
 }
 
 </style>
@@ -634,7 +662,7 @@ function typeLoop(){
         charIndex++;
 
         if(charIndex === currentText.length){
-            setTimeout(() => isDeleting = true, 2500); // pause before delete
+            setTimeout(() => isDeleting = true, 2000); // pause before deleting
         }
     } else {
         el.textContent = currentText.substring(0, charIndex - 1);
@@ -646,7 +674,9 @@ function typeLoop(){
         }
     }
 
-    setTimeout(typeLoop, isDeleting ? 20 : 30);
+    // type speed adjustments
+    const typingSpeed = isDeleting ? 25 : 35; // slightly slower delete, faster type
+    setTimeout(typeLoop, typingSpeed);
 }
 
 typeLoop();
