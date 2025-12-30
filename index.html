@@ -281,6 +281,47 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
 }
 #scrollTopBtn:hover { transform: translateY(-4px); opacity: 0.9; }
 
+.welcome-box{
+    position: relative;
+    max-width: 580px;
+    margin: 0 auto 30px auto;
+    
+    animation: welcomeFade 1.1s ease forwards;
+    opacity: 1;
+}
+
+#randomWelcomeText{
+    font-size: 1rem;          /* readable */
+    line-height: 1.65;
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+
+    background: linear-gradient(90deg, #ffb3d9, #c3b1ff, #9ff0c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Mobile fine-tune */
+@media (max-width: 768px){
+    #randomWelcomeText{
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* Fade animation */
+@keyframes welcomeFade{
+    from{
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 </style>
 </head>
 <body>
@@ -299,7 +340,10 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
 <section id="home" class="home-with-sidebar">
     <div class="main-content">
         <h2>•Welcome to Seven33•</h2>
-        <p>Your go-to space for modern lifestyle tips, self-improvement hacks, and productivity insights.</p>
+        
+<div class="welcome-box">
+  <p id="randomWelcomeText"></p>
+</div>
 
         <div class="ad-container">
             <ins class="adsbygoogle"
@@ -565,6 +609,47 @@ loadMoreBtn.addEventListener("click", () => {
         loadMoreBtn.style.cursor = "not-allowed";
     }
 });
+
+// ===== ADVANCED TYPEWRITER WELCOME TEXT =====
+const welcomeTexts = [
+  "Seven33 is a space for intentional living—where small habits, focused routines, and mindful choices help you grow every day.",
+  "Here at Seven33, progress doesn’t need noise. Simple actions and consistent effort create a powerful lifestyle.",
+  "Life moves fast, but growth happens slowly. Seven33 shares ideas you can actually apply daily.",
+  "Seven33 is about designing your life with purpose—balancing ambition, wellness, and simplicity.",
+  "Welcome to Seven33, where self-improvement meets real life and clarity beats chaos."
+];
+
+const el = document.getElementById("randomWelcomeText");
+el.classList.add("type-cursor");
+
+let textIndex = Math.floor(Math.random() * welcomeTexts.length);
+let charIndex = 0;
+let isDeleting = false;
+
+function typeLoop(){
+    const currentText = welcomeTexts[textIndex];
+
+    if(!isDeleting){
+        el.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+
+        if(charIndex === currentText.length){
+            setTimeout(() => isDeleting = true, 2500); // pause before delete
+        }
+    } else {
+        el.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+
+        if(charIndex === 0){
+            isDeleting = false;
+            textIndex = (textIndex + 1) % welcomeTexts.length;
+        }
+    }
+
+    setTimeout(typeLoop, isDeleting ? 20 : 30);
+}
+
+typeLoop();
 
 // ===== Initial Load =====
 loadPostsBatch();
