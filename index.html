@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,15 +164,22 @@ footer a:hover { color:#ffc0cb; }
   footer { flex-direction: column; gap: 5px; padding: 15px 20px; font-size:0.85rem; justify-content: center; }
 }
 
-h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e0; text-shadow: 2px 2px 0 #666, 4px 4px 0 #222; }
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: #f5f5f5;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+}
 
 /* ===== Home with Sidebar ===== */
+
 .home-with-sidebar {
     display: flex;
     gap: 30px;
-    padding: 50px 15px;
-    align-items: flex-start; /* align sidebar ug main content sa top */
-    flex-wrap: wrap; /* para mo-wrap sa mobile */
+    padding: 0 15px 50px 15px; /* top=0, left/right=15px, bottom=50px */
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .home-with-sidebar .main-content {
@@ -281,73 +289,77 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
 }
 #scrollTopBtn:hover { transform: translateY(-4px); opacity: 0.9; }
 
-.welcome-box{
+.intro-section {
+    min-height: auto;            /* remove full screen forcing */
+    padding: 60px 1rem 80px;     /* top 60px, bottom 80px */
+    background-image: url('media/kunal-patil-8ZKlgI_G-mw-unsplash.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
     position: relative;
-    max-width: 580px;
-    margin: 0 auto 30px auto;
-    
-    animation: welcomeFade 1.1s ease forwards;
-    opacity: 1;
-}
-
-#randomWelcomeText{
-    font-size: 1.05rem;
-    line-height: 1.65;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* start from top instead of bottom */
     text-align: center;
-    margin: 0 0 25px 0;
-    font-weight: 500;
-
-    background: linear-gradient(270deg, #ffb3d9, #c3b1ff, #9ff0c3, #ffea00);
-    background-size: 800% 800%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: gradientShift 8s ease infinite;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 0;
 }
 
-/* Mobile fine-tune */
-@media (max-width: 768px){
-    #randomWelcomeText{
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
+.intro-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 20px; /* small top spacing for comfort */
 }
 
-/* Fade animation */
-@keyframes welcomeFade{
-    from{
-        opacity: 0;
-        transform: translateY(14px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* SHARE ICONS */
+.share-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;   /* center icons horizontally */
+  gap: 1rem;                 /* space between icons */
 }
 
-/* Typewriter cursor */
-.type-cursor::after {
-    content: '|';
-    display: inline-block;
-    margin-left: 2px;
-    color: #ffea00; /* yellow cursor */
-    animation: blinkCursor 1s steps(2, start) infinite, glowCursor 1.5s ease-in-out infinite;
+.share-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
-@keyframes blinkCursor {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+.share-icons a img {
+  width: 32px;
+  height: 32px;
 }
 
-@keyframes glowCursor {
-    0%, 100% { text-shadow: 0 0 3px #ffea00; }
-    50% { text-shadow: 0 0 8px #ffea00; }
+.share-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* DESKTOP */
+@media (min-width: 992px) {
+  .intro-wrapper {
+    flex-direction: row;     /* left + right side by side */
+    justify-content: center; /* center the whole wrapper */
+    align-items: center;     /* vertically align items */
+    gap: 3rem;
+  }
+
+  .intro-wrapper p {
+    font-size: 1.05rem;
+    text-align: left;        /* editorial feel for desktop */
+  }
 }
 
 </style>
@@ -367,11 +379,44 @@ h1, h2 { font-family: 'Metal Mania', cursive; letter-spacing: 3px; color: #e0e0e
 
 <section id="home" class="home-with-sidebar">
     <div class="main-content">
-        <h2>•Welcome to Seven33•</h2>
         
-<div class="welcome-box">
-  <p id="randomWelcomeText"></p>
-</div>
+<section class="intro-section">
+  <div class="intro-wrapper">
+
+    <!-- LEFT COLUMN -->
+    <div class="intro-left">
+      <p>
+        Seven33 is about building a life with intention, not pressure. It’s a space for clear thinking, steady growth, and real-life lessons that help shape better habits and stronger discipline over time.
+      </p>
+
+      <p>
+        The focus here is modern lifestyle, mindset, productivity, and self-improvement. Each post is designed to offer simple ideas, practical insights you can apply to your daily routine without overcomplicating things.
+      </p>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="intro-right">
+      <p>
+        This platform is for those who value progress over perfection — people who want clarity, consistency, and a lifestyle that feels purposeful, grounded, and sustainable.
+      </p>
+
+<!-- SHARE ICONS -->
+<div class="share-icons">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/index.html" target="_blank" title="Share on Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url=http://localhost:8080/index.html&text=Check+out+Seven33" target="_blank" title="Share on Twitter">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8080/index.html" target="_blank" title="Share on LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>      
+
+    </div>
+
+  </div>
+</section>
 
         <div class="ad-container">
             <ins class="adsbygoogle"
@@ -637,49 +682,6 @@ loadMoreBtn.addEventListener("click", () => {
         loadMoreBtn.style.cursor = "not-allowed";
     }
 });
-
-// ===== ADVANCED TYPEWRITER WELCOME TEXT =====
-const welcomeTexts = [
-  "Seven33 is a space for intentional living—where small habits, focused routines, and mindful choices help you grow every day.",
-  "Here at Seven33, progress doesn’t need noise. Simple actions and consistent effort create a powerful lifestyle.",
-  "Life moves fast, but growth happens slowly. Seven33 shares ideas you can actually apply daily.",
-  "Seven33 is about designing your life with purpose—balancing ambition, wellness, and simplicity.",
-  "Welcome to Seven33, where self-improvement meets real life and clarity beats chaos."
-];
-
-const el = document.getElementById("randomWelcomeText");
-el.classList.add("type-cursor");
-
-let textIndex = Math.floor(Math.random() * welcomeTexts.length);
-let charIndex = 0;
-let isDeleting = false;
-
-function typeLoop(){
-    const currentText = welcomeTexts[textIndex];
-
-    if(!isDeleting){
-        el.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-
-        if(charIndex === currentText.length){
-            setTimeout(() => isDeleting = true, 2000); // pause before deleting
-        }
-    } else {
-        el.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-
-        if(charIndex === 0){
-            isDeleting = false;
-            textIndex = (textIndex + 1) % welcomeTexts.length;
-        }
-    }
-
-    // type speed adjustments
-    const typingSpeed = isDeleting ? 25 : 35; // slightly slower delete, faster type
-    setTimeout(typeLoop, typingSpeed);
-}
-
-typeLoop();
 
 // ===== Initial Load =====
 loadPostsBatch();
