@@ -290,18 +290,25 @@ h1, h2 {
 #scrollTopBtn:hover { transform: translateY(-4px); opacity: 0.9; }
 
 .intro-section {
-    min-height: auto;            /* remove full screen forcing */
-    padding: 60px 1rem 80px;     /* top 60px, bottom 80px */
-    background-image: url('media/bogdan-pasca-HWV1XtnPAXw-unsplash.jpg');
-i    background-size: cover;
-    background-position: top;
+    width: 100%;
+    padding: 110px 1rem 110px;
+
+    background-image: url('media/aivars-vilks-lF8PENdWiiM-unsplash.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
+
+    background-position: center 30%; /* 👈 CONTROL CROP HERE */
+
     position: relative;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* start from top instead of bottom */
+    color: #fff;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    padding: 90px 1rem;
+    background-position: center 20%;
+  }
 }
 
 .intro-section::before {
@@ -525,7 +532,12 @@ const postsData = [
   {title:"Mindful Hydration Habits", text:"Drinking water intentionally throughout the day impacts energy, focus, and overall health...", media:"media/lv_0_20251229134718.mp4", type:"video", reverse:false, link:"posts/post17.html", category:"Lifestyle"},
   {title:"Nature Breaks for Mental Clarity", text:"Stepping outside and connecting with nature resets the mind...", media:"media/IMG_20251229_132702.jpg", type:"image", reverse:true, link:"posts/post18.html", category:"Lifestyle"},
   {title:"Weekly Focus Planning", text:"Plan your week intentionally by outlining priorities and key tasks...", media:"media/lv_0_20251229141114.mp4", type:"video", reverse:false, link:"posts/post19.html", category:"Productivity"},
-  {title:"The Power of Reflection Journals", text:"Daily reflection journals strengthen self-awareness...", media:"media/photo-1581217185422-a0f8c198710f.jpeg", type:"image", reverse:true, link:"posts/post20.html", category:"Lifestyle"},  
+  {title:"The Power of Reflection Journals", text:"Daily reflection journals strengthen self-awareness...", media:"media/photo-1581217185422-a0f8c198710f.jpeg", type:"image", reverse:true, link:"posts/post20.html", category:"Lifestyle"},
+  {title:"Evening Wind-Down", text:"End your day with a simple routine to relax your mind...", media:"media/IMG_20260101_215310.jpg", type:"image", reverse:false, link:"posts/post21.html", category:"Self-Improvement"},
+  {title:"Mindful Eating", text:"Pay attention to what you eat and how you eat...", media:"media/1708ba5c-a1fb-4260-99e7-f7cd11066081-thumb.jpg", type:"image", reverse:true, link:"posts/post22.html", category:"Lifestyle"},
+  {title:"Short Meditation Sessions", text:"Even 3–5 minutes of meditation can reset your mind...", media:"media/lv_0_20260101222253.mp4", type:"video", reverse:false, link:"posts/post23.html", category:"Self-Improvement"},
+  {title:"Quick Productivity Hacks", text:"Batch similar tasks together to work efficiently...", media:"media/lv_0_20260101221420.mp4", type:"video", reverse:true, link:"posts/post24.html", category:"Productivity"},
+  {title:"Micro-Adventures", text:"Try small adventures in your day-to-day life...", media:"media/IMG_20260101_220415.jpg", type:"image", reverse:false, link:"posts/post25.html", category:"Lifestyle"}, 
 ];
 
 // ===== Shuffle Posts =====
@@ -569,7 +581,7 @@ function initPostAnimations(){
 // ===== Render Posts =====
 const postsContainer = document.getElementById("postsContainer");
 let loadIndex = 0;
-const loadPerBatch = 3;
+const loadPerBatch = 5;
 
 function loadPostsBatch(){
     for(let i=0; i<loadPerBatch && loadIndex<postsData.length; i++, loadIndex++){
