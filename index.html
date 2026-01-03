@@ -289,47 +289,37 @@ h1, h2 {
 }
 #scrollTopBtn:hover { transform: translateY(-4px); opacity: 0.9; }
 
+/* ===== INTRO SECTION (CLEAN & STABLE) ===== */
 .intro-section {
-    width: 100%;
-    padding: 110px 1rem 110px;
-
-    background-image: url('media/aivars-vilks-lF8PENdWiiM-unsplash.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    background-position: center 30%; /* 👈 CONTROL CROP HERE */
-
-    position: relative;
+    padding: 90px 1rem;
     color: #fff;
     text-align: center;
 }
 
-@media (max-width: 768px) {
-  .intro-section {
-    padding: 90px 1rem;
-    background-position: center 20%;
-  }
-}
-
-.intro-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: 0;
-}
-
 .intro-wrapper {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    padding-top: 20px; /* small top spacing for comfort */
+    gap: 1.5rem;
+}
+
+.intro-wrapper p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #eaeaea;
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .intro-wrapper {
+        flex-direction: row;
+        gap: 3rem;
+    }
+    .intro-wrapper p {
+        text-align: left;
+    }
 }
 
 /* SHARE ICONS */
@@ -408,17 +398,19 @@ h1, h2 {
       </p>
 
 <!-- SHARE ICONS -->
+
 <div class="share-icons">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/index.html" target="_blank" title="Share on Facebook">
+  <a id="fbShare" target="_blank" title="Share on Facebook">
     <i class="fab fa-facebook-f"></i>
   </a>
-  <a href="https://twitter.com/intent/tweet?url=http://localhost:8080/index.html&text=Check+out+Seven33" target="_blank" title="Share on Twitter">
+  <a id="twShare" target="_blank" title="Share on Twitter">
     <i class="fab fa-twitter"></i>
   </a>
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:8080/index.html" target="_blank" title="Share on LinkedIn">
+  <a id="lnShare" target="_blank" title="Share on LinkedIn">
     <i class="fab fa-linkedin-in"></i>
   </a>
-</div>      
+</div>
+      
 
     </div>
 
@@ -695,6 +687,18 @@ loadMoreBtn.addEventListener("click", () => {
         loadMoreBtn.style.cursor = "not-allowed";
     }
 });
+//======= Share Icons =======
+
+const pageURL = encodeURIComponent(window.location.href);
+
+  document.getElementById("fbShare").href =
+    "https://www.facebook.com/sharer/sharer.php?u=" + pageURL;
+
+  document.getElementById("twShare").href =
+    "https://twitter.com/intent/tweet?url=" + pageURL + "&text=Check+out+Seven33";
+
+  document.getElementById("lnShare").href =
+    "https://www.linkedin.com/shareArticle?mini=true&url=" + pageURL;
 
 // ===== Initial Load =====
 loadPostsBatch();
