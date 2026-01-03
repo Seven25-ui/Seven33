@@ -7,6 +7,7 @@
 <title>Seven33•Modern Lifestyle & Self-Improvement Blog</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+<meta name="google-adsense-account" content="ca-pub-9985396086570117">
 <!-- Global AdSense script -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9985396086570117" crossorigin="anonymous"></script>
 
@@ -417,6 +418,7 @@ h1, h2 {
   </div>
 </section>
 
+<!----
         <div class="ad-container">
             <ins class="adsbygoogle"
                  style="display:block; text-align:center;"
@@ -426,6 +428,8 @@ h1, h2 {
                  data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
+
+---->
 
         <div class="posts" id="postsContainer"></div>
     </div>
@@ -602,7 +606,9 @@ function loadPostsBatch(){
 
         postsContainer.appendChild(postCard);
 
-        // Insert AdSense after 3rd post
+     // Insert AdSense after 3rd post
+
+/*
         if(loadIndex === 2){
             const adDiv = document.createElement("div");
             adDiv.classList.add("ad-container");
@@ -617,6 +623,7 @@ function loadPostsBatch(){
             postsContainer.appendChild(adDiv);
             (adsbygoogle = window.adsbygoogle || []).push({});
         }
+*/
     }
 
     initLazyLoading();
