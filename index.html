@@ -440,6 +440,27 @@ body {
   opacity: 0.85;
 }
 
+/* Default dark theme (current) stays */
+body {
+    color: #f5f5f5;
+    background:
+        radial-gradient(at top left, #ff9a9e, transparent 55%),
+        radial-gradient(at top right, #a18cd1, transparent 55%),
+        radial-gradient(at bottom left, #fbc2eb, transparent 55%),
+        radial-gradient(at bottom right, #84fab0, transparent 55%),
+        linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+}
+
+/* ===== Enhanced Dark Overlay (SAFE) ===== */
+body.dark-mode-enhanced::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* adjust darkness here */
+  z-index: -1;
+  pointer-events: none;
+}
+
 </style>
 </head>
 <body>
@@ -707,11 +728,31 @@ function loadPostsBatch(){
     initPostAnimations();
 }
 
-// ===== Theme Toggle =====
+// ===== Dark Mode Toggle + Memory =====
 const themeToggle = document.getElementById("themeToggle");
-themeToggle.addEventListener("click", ()=>{
-    document.body.classList.toggle("light-theme");
-    themeToggle.textContent = document.body.classList.contains("light-theme") ? "⚫" : "🔆";
+
+function setDarkMode(state){
+    if(state){
+        document.body.classList.add("dark-mode-enhanced");
+        themeToggle.textContent = "🌑";
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        document.body.classList.remove("dark-mode-enhanced");
+        themeToggle.textContent = "🔆";
+        localStorage.setItem("darkMode", "disabled");
+    }
+}
+
+// On page load, check saved preference
+document.addEventListener("DOMContentLoaded", () => {
+    const savedMode = localStorage.getItem("darkMode");
+    setDarkMode(savedMode === "enabled");
+});
+
+// On button click, toggle
+themeToggle.addEventListener("click", () => {
+    const isDark = document.body.classList.contains("dark-mode-enhanced");
+    setDarkMode(!isDark);
 });
 
 // ===== Scroll-to-top =====
