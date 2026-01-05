@@ -540,19 +540,48 @@ body.dark-mode-enhanced::before {
   font-weight: 700;
 }
 
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-wrap img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 8px; /* optional */
+}
+
+.logo-wrap h1 {
+u  font-size: 1.4rem;
+  margin: 0;
+}
+
+.logo-img {
+  width: 38px;       /* size sa logo */
+  height: 38px;
+  object-fit: cover; /* para dili ma-distort */
+  border-radius: 50%; /* mao ni mag-circle */
+  border: 2px solid #ffc0cb; /* optional border pink */
+}
+
 </style>
 </head>
 <body>
 <div class="swirl3"></div>
 
 <header>
-    <h1>Seven33 • Modern Lifestyle & Self-Improvement Blog</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#contact">Contact</a>
-        <button id="themeToggle" title="Toggle Theme">🔆</button>
-    </nav>
+  <div class="logo-wrap">
+  <img src="media/icon-5447912_1280.png" alt="Seven33 Logo" class="logo-image">
+  <h1>Seven33</h1>
+</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact</a>
+    <button id="themeToggle" title="Toggle Theme">🔆</button>
+  </nav>
 </header>
 
 <section id="home" class="home-with-sidebar">
@@ -584,7 +613,7 @@ body.dark-mode-enhanced::before {
 </section>
 
 <section class="adsense-postcards">
-  <h2 class="postcard-title">Featured Articles 👇</h2>
+  <h2 class="postcard-title">Featured Articles</h2>
 
   <div class="postcard-grid">
 
