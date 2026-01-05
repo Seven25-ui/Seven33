@@ -461,6 +461,76 @@ body.dark-mode-enhanced::before {
   pointer-events: none;
 }
 
+.adsense-postcards {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 1.2rem;
+}
+
+.postcard-title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffc0cb;
+}
+
+/* Horizontal layout */
+.postcard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Each card horizontal for desktop */
+.postcard {
+  display: flex;
+  flex-direction: row; /* text left, optional media right */
+  background: rgba(0,0,0,0.45); 
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+/* Text part */
+.postcard h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #ff9acb;
+}
+
+.postcard p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  max-width: 100%;
+}
+
+/* Make cards stack vertically on mobile */
+@media (max-width: 992px) {
+  .postcard {
+    flex-direction: column;
+  }
+}
+
+.post-separator {
+  text-align: center;
+  margin: 40px 0;      /* space top & bottom */
+  font-size: 1.5rem;   /* adjust size sa dots */
+  color: #ff9acb;      /* color sa dots */
+  letter-spacing: 0.8rem;  /* spacing between dots */
+}
+
+.main-posts-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffc0cb;
+  margin: 20px 0 30px;       /* spacing after dots, before posts */
+  font-weight: 700;
+}
+
 </style>
 </head>
 <body>
@@ -504,6 +574,45 @@ body.dark-mode-enhanced::before {
   </div>
 </section>
 
+<section class="adsense-postcards">
+  <h2 class="postcard-title">Featured Articles 👇</h2>
+
+  <div class="postcard-grid">
+
+    <article class="postcard">
+      <h3>Mindful Morning Journaling</h3>
+      <p>Start your day with a 5-minute journaling habit. Write down three things you’re grateful for, one intention for the day, and a small action step. This simple practice helps set focus, boosts mood, and creates mental clarity without overwhelming your morning.</p>
+    </article>
+
+    <article class="postcard">
+      <h3>Evening Digital Wind-Down</h3>
+      <p>Unplug 30 minutes before bed to improve sleep quality. Turn off notifications, dim lights, and engage in calming activities like reading or stretching. This routine signals your brain to relax, making it easier to fall asleep and wake up refreshed.</p>
+    </article>
+
+    <article class="postcard">
+      <h3>Hydration and Energy Boost</h3>
+      <p>Drink a glass of water first thing in the morning to kickstart metabolism and increase alertness. Throughout the day, sip water mindfully. Staying hydrated improves energy levels, supports focus, and promotes overall well-being.</p>
+    </article>
+
+    <article class="postcard">
+      <h3>Micro Productivity Sessions</h3>
+      <p>Break work into short, focused intervals of 25–30 minutes with 5-minute breaks. This method, inspired by the Pomodoro technique, enhances concentration, reduces mental fatigue, and creates momentum for bigger tasks without feeling pressured.</p>
+    </article>
+
+    <article class="postcard">
+      <h3>Intentional Movement Breaks</h3>
+      <p>Incorporate small movement breaks every 1–2 hours. Stretch, walk, or do light exercises to improve circulation and mental clarity. These micro-moments of activity prevent burnout, refresh your mind, and boost creativity throughout the day.</p>
+    </article>
+
+  </div>
+</section>
+
+<div class="post-separator">
+  <span>• • • • •</span>
+</div>
+
+<!-- Main posts title -->
+<h2 class="main-posts-title">Main Posts</h2>
 <!----
         <div class="ad-container">
             <ins class="adsbygoogle"
@@ -584,6 +693,13 @@ body.dark-mode-enhanced::before {
         <textarea rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
+
+  <!-- Direct email contact -->
+    <p style="text-align:center; font-size:0.9rem; margin-top:15px;">
+        You can also reach me directly at
+        <a href="mailto:guardianagene6@gmail.com" style="color:#ff9acb;">guardianagene6@gmail.com</a>
+    </p>
+
 </section>
 
 <button id="scrollTopBtn">↑</button>
