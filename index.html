@@ -307,23 +307,32 @@ h1, h2 {
 #scrollTopBtn:hover { transform: translateY(-4px); opacity: 0.9; }
 
 /* ===== INTRO SECTION (FIXED TEXT ALIGNMENT) ===== */
+
 .intro-section {
     padding: 90px 1rem;
     color: #fff;
-    text-align: left;   /* <-- IMPORTANT */
+    text-align: left;
+    position: relative;
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('media/Jan-30-03-620x315_cbc45221-25e8-4c34-be7a-fad9da011adb.png') no-repeat center center/cover;
+}
+
+.intro-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0; /* optional if using gradient above */
 }
 
 .intro-wrapper {
+    position: relative; /* so content is above overlay */
+    z-index: 1;
     max-width: 900px;
     margin: 0 auto;
-}
-
-.intro-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 @media (min-width: 992px) {
