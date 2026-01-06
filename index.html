@@ -566,6 +566,69 @@ u  font-size: 1.4rem;
   border: 2px solid #ffc0cb; /* optional border pink */
 }
 
+/* Popup Background */
+#welcomePopup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Content */
+.popup-content {
+  text-align: center;
+  animation: zoomIn 1s ease;
+}
+
+/* Fire Text */
+.fire-text {
+  font-size: 3rem;
+  color: #ffcc00;
+  text-shadow:
+    0 0 10px #ff6600,
+    0 0 20px #ff3300,
+    0 0 40px red;
+  animation: fire 0.6s infinite alternate;
+}
+
+/* Circle Logo */
+.popup-logo {
+  width: 150px;
+  height: 150px;
+  margin-top: 25px;
+  border-radius: 50%;
+  border: 3px solid #ff6600;
+  object-fit: cover;
+  animation: riseUp 1.5s ease;
+}
+
+/* Animations */
+@keyframes fire {
+  from { text-shadow: 0 0 10px orange; }
+  to { text-shadow: 0 0 30px red; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes riseUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
 </style>
 </head>
 <body>
@@ -756,6 +819,16 @@ u  font-size: 1.4rem;
   </div>
  <p class="footer-tagline">Sharing modern lifestyle tips and self-improvement hacks for everyday growth.</p>
 </footer>
+
+<!-- Welcome Popup -->
+<div id="welcomePopup">
+  <div class="popup-content">
+    <h1 class="fire-text">Welcome to Seven33</h1>
+
+    <!-- Circle Logo -->
+    <img src="media/Black And White Modern Marketing Agency Round Stamp Business Logo_20260106_085414_0000.png" alt="Seven33 Logo" class="popup-logo">
+  </div>
+</div>
 
 <script>
 // ===== Blog Posts Data =====
@@ -978,6 +1051,22 @@ const pageURL = encodeURIComponent(window.location.href);
 
   document.getElementById("lnShare").href =
     "https://www.linkedin.com/shareArticle?mini=true&url=" + pageURL;
+
+if (!localStorage.getItem("seven33WelcomeShown")) {
+
+    setTimeout(() => {
+      document.getElementById("welcomePopup").classList.add("fade-out");
+    }, 4000);
+
+    setTimeout(() => {
+      document.getElementById("welcomePopup").style.display = "none";
+    }, 5000);
+
+    localStorage.setItem("seven33WelcomeShown", "true");
+
+  } else {
+    document.getElementById("welcomePopup").style.display = "none";
+  }
 
 // ===== Initial Load =====
 loadPostsBatch();
