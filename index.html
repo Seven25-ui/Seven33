@@ -629,6 +629,24 @@ u  font-size: 1.4rem;
   to { opacity: 0; visibility: hidden; }
 }
 
+/* Make Google CSE results text visible */
+.gsc-results .gsc-thumbnail-inside .gs-title,
+.gsc-results .gs-title,
+.gsc-results .gs-bidi-start-align,
+.gsc-results .gs-snippet,
+.gsc-results .gs-visibleUrl {
+    color: #333 !important; /* dark text */
+}
+
+/* Links */
+.gsc-results .gs-title a {
+    color: #ffd700 !important; /* Seven33 yellow links */
+    text-decoration: none;
+}
+.gsc-results .gs-title a:hover {
+    text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
@@ -674,6 +692,70 @@ u  font-size: 1.4rem;
 
   </div>
 </section>
+
+<!-- Seven33 Modern Google CSE Search -->
+<style>
+/* Container for search */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+/* Input box */
+.gcse-search input {
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 16px;
+  width: 60%;
+  max-width: 500px;
+  border: 2px solid #ffd700; /* Seven33 yellow border */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.gcse-search input:focus {
+  outline: none;
+  border-color: #ffbf00;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Search button */
+.gcse-search button {
+  background-color: #ffd700; /* Seven33 yellow */
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.gcse-search button:hover {
+  background-color: #ffbf00;
+  transform: translateY(-2px);
+}
+
+/* Center results */
+.gsc-results-wrapper-visible {
+  margin: 20px auto;
+  max-width: 800px;
+  border-top: 2px solid #ffd700;
+  padding-top: 15px;
+}
+
+/* Remove default Google border */
+.gsc-control-cse {
+  background: transparent !important;
+  border: none !important;
+}
+</style>
+
+<div class="search-container">
+  <script async src="https://cse.google.com/cse.js?cx=94b036dcb5e514824"></script>
+  <div class="gcse-search"></div>
+</div>
 
 <section class="adsense-postcards">
   <h2 class="postcard-title">Featured Articles</h2>
